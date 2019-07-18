@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<main role="main" class="container">
+    <div class="">
+        <h1>Welcome to wine quality detector</h1>
+        <p class="lead">
+            Please enter wine chemical composition and we will gladly tell how good your selected wine is.
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="fixed_acidity"
+                           aria-describedby="fixed_acidity_help"
+                           placeholder="Enter Fixed Acidity value">
+                    <small id="fixed_acidity_help" class="form-text text-muted">Usually ranging from 4 to 16.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="volatile_acidity"
+                           aria-describedby="volatile_acidity_help"
+                           placeholder="Enter Volatile Acidity value">
+                    <small id="volatile_acidity_help" class="form-text text-muted">Usually ranging from 0.12 to 1.6.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="citric_acid"
+                           aria-describedby="citric_acid_help"
+                           placeholder="Enter Citric Acid value">
+                    <small id="citric_acid_help" class="form-text text-muted">Usually ranging from 0 to 1.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="residual_sugar"
+                           aria-describedby="residual_sugar_help"
+                           placeholder="Enter Residual Sugar value">
+                    <small id="residual_sugar_help" class="form-text text-muted">Usually ranging from 1 to 16.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="chlorides"
+                           aria-describedby="chlorides_help"
+                           placeholder="Enter Chlorides value">
+                    <small id="chlorides_help" class="form-text text-muted">Usually ranging from 0.1 to 0.6.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="free_sulfur_dioxide"
+                           aria-describedby="free_sulfur_dioxide_help"
+                           placeholder="Enter Free Sulfur Dioxide value">
+                    <small id="free_sulfur_dioxide_help" class="form-text text-muted">Usually ranging from 1 to 72.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="total_sulfur_dioxide"
+                           aria-describedby="total_sulfur_dioxide_help"
+                           placeholder="Enter Total Sulfur Dioxide value">
+                    <small id="total_sulfur_dioxide_help" class="form-text text-muted">Usually ranging from 6 to 289.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="density" aria-describedby="density_help"
+                           placeholder="Enter Density value">
+                    <small id="density_help" class="form-text text-muted">Usually ranging from 0.9 to 1.1.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="pH" aria-describedby="pH_help"
+                           placeholder="Enter pH value">
+                    <small id="pH_help" class="form-text text-muted">Usually ranging from 2.7 to 4.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="sulphates"
+                           aria-describedby="sulphates_help"
+                           placeholder="Enter Sulphates value">
+                    <small id="sulphates_help" class="form-text text-muted">Usually ranging from 0.3 to 2.</small>
+                </div>
+                <div class="form-group">
+                    <input type="number" step="0.1" class="form-control" name="alcohol" aria-describedby="alcohol_help"
+                           placeholder="Enter Alcohol value">
+                    <small id="alcohol_help" class="form-text text-muted">Usually ranging from 8.4 to 14.9.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>
